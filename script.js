@@ -1,18 +1,14 @@
-function validate(){
-    let phoneNumber = document.getElementById('phone-number').value;
+function validate1(){
+    // let phoneNumber = document.getElementById('phone-number').value;
     let email = document.getElementById('email').value;
     let passw = document.getElementById('passw').value;
-    let phoneRGEX = /^[0-9]{3}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+    // let phoneRGEX = /^[0-9]{3}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     let emailRGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     let passwRGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
-    let phoneResult = phoneRGEX.test(phoneNumber);
+    // let phoneResult = phoneRGEX.test(phoneNumber);
     let emailResult = emailRGEX.test(email);
     let passwResult = passwRGEX.test(passw);
-    if(phoneResult == false)
-    {
-      alert('Please enter a valid phone number');
-      return false;
-    }
+    
     if(emailResult == false)
     {
       alert('Please enter a valid email');
@@ -23,6 +19,11 @@ function validate(){
       alert('Please enter a password with 8-16 characters including atleast a number, special character, capital & small letters');
       return false;
     }
+    // if(phoneResult == false)
+    // {
+    //   alert('Please enter a valid phone number');
+    //   return false;
+    // }
     else{
     alert("Success!");
     return true;
@@ -31,9 +32,7 @@ function validate(){
 
 let timeout;
 let strengthBadge = document.getElementById('StrengthDisp');
-// let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
 let strongPassword = new RegExp('(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,16}')
-// let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
 let mediumPassword = new RegExp('(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,9}')
 
 function StrengthChecker(PasswordParameter) {
@@ -59,3 +58,35 @@ function StrengthChecker(PasswordParameter) {
         strengthBadge.style.display = 'none';
     }
     });
+
+    function validate2(){
+        let phoneNumber = document.getElementById('phone-number').value;
+        let email = document.getElementById('email').value;
+        let passw = document.getElementById('passw').value;
+        let phoneRGEX = /^[0-9]{3}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+        let emailRGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let passwRGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+        let phoneResult = phoneRGEX.test(phoneNumber);
+        let emailResult = emailRGEX.test(email);
+        let passwResult = passwRGEX.test(passw);
+        
+        if(emailResult == false)
+        {
+          alert('Please enter a valid email');
+          return false;
+        }
+        if(passwResult == false)
+        {
+          alert('Please enter a password with 8-16 characters including atleast a number, special character, capital & small letters');
+          return false;
+        }
+        if(phoneResult == false)
+        {
+          alert('Please enter a valid phone number');
+          return false;
+        }
+        else{
+        alert("Success!");
+        return true;
+        }
+    }
